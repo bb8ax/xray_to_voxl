@@ -131,7 +131,7 @@ The following files are required but not included in this repository.
 
 ### Fusion network checkpoint
 
-- **File**: '20260113_0044_v3_r192_E0.06\best.pt'
+- **File**: '0044_v3_r192_E0.06\best.pt'
 - For volumetric fusion network in: `test_inference_metric.ipynb`
 - Provided upon request.
 
