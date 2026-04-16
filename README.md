@@ -225,4 +225,18 @@ To use different bone/anatomy models:
   journal={arXiv preprint arXiv:2403.02151},
   year={2024}
 }
+
+@misc{mmpose2020,
+  title={OpenMMLab Pose Estimation Toolbox and Benchmark},
+  author={MMPose Contributors},
+  howpublished={\url{https://github.com/open-mmlab/mmpose}},
+  year={2020}
+}
+
+@article{kirillov2023segment,
+  title={Segment Anything},
+  author={Kirillov, Alexander and Mintun, Eric and Ravi, Nikhila and Mao, Hanzi and Rolland, Chloe and Gustafson, Laura and Xiao, Tete and Whitehead, Spencer and Berg, Alexander C. and Lo, Wan-Yen and Dollar, Piotr and Girshick, Ross},
+  journal={arXiv preprint arXiv:2304.02643},
+  year={2023}
+}
 ```
