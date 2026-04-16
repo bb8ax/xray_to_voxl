@@ -25,7 +25,7 @@ xray_to_voxl/
 |   |-- utils.py
 |   |-- bake_texture.py
 |   \-- models/                # Transformer, tokenizers, renderer, isosurface
-|-- mmpose/                    # MMPose (external repo, used for hand keypoint detection)
+|-- mmpose.tar.gz              # MMPose source (extract before use, see below)
 |-- dataset_gvxr.py            # GVXR dataset loader with angle selection
 |-- train_gvxr.py              # Training script (CLI)
 |-- train_notebook.ipynb       # Training notebook (interactive, recommended)
@@ -48,18 +48,25 @@ xray_to_voxl/
 
 ### Steps
 
+Look up the `Hand_Imaging_to_SAM_Dataset_generation.ipynb` for command lines.
+
 1. Clone the repository:
    ```bash
    git clone https://github.com/<your-username>/xray_to_voxl.git
    cd xray_to_voxl
    ```
 
-2. Install PyTorch with CUDA 11.8:
+2. Extract mmpose:
+   ```bash
+   tar xzf mmpose.tar.gz
+   ```
+
+3. Install PyTorch with CUDA 11.8:
    ```bash
    pip install torch==2.1.2+cu118 torchvision==0.16.2+cu118 torchaudio==2.1.2 --index-url https://download.pytorch.org/whl/cu118
    ```
 
-3. Install MMPose and dependencies:
+4. Install MMPose and dependencies:
    ```bash
    pip install -r ./mmpose/requirements.txt
    pip install -U openmim
@@ -70,17 +77,17 @@ xray_to_voxl/
    mim install mmpose
    ```
 
-4. Install SAM:
+5. Install SAM:
    ```bash
    pip install segment_anything
    ```
 
-5. Install gvxr (for X-ray simulation):
+6. Install gvxr (for X-ray simulation):
    ```bash
    pip install gvxr
    ```
 
-6. Install TripoSR dependencies:
+7. Install TripoSR dependencies:
    ```bash
    pip install --upgrade setuptools
    pip install pybind11 scikit_build_core "cmake>=3.15"
@@ -94,7 +101,7 @@ xray_to_voxl/
    pip install git+https://github.com/tatsy/torchmcubes.git
    ```
 
-7. Pin numpy version (required for compatibility):
+8. Pin numpy version (required for compatibility):
    ```bash
    pip install numpy==1.26.4
    ```
@@ -121,6 +128,12 @@ The following files are required but not included in this repository.
 - **File**: `rtmpose-m_simcc-hand5_pt-aic-coco_210e-256x256-74fb594_20230320.pth`
 - For mmpose network in: `Hand_Imaging_to_SAM_Dataset_generation.ipynb`
 - Download from [MMPose model zoo](https://mmpose.readthedocs.io/en/latest/model_zoo/hand_2d_keypoint.html). Place in the project root.
+
+### Fusion network checkpoint
+
+- **File**: '20260113_0044_v3_r192_E0.06\best.pt'
+- For volumetric fusion network in: `test_inference_metric.ipynb`
+- Provided upon request.
 
 ### TripoSR Pretrained Weights
 
@@ -179,7 +192,7 @@ USE_LIGHT_MODEL = True           # True for GPUs with <= 12 GB VRAM
 2. **Using the CLI**:
 
 ```bash
-python train_gvxr.py \
+python train.py \
     --base_path ./New_Result \
     --ground_truth_path . \
     --n_views 3 \
@@ -196,7 +209,7 @@ Each different `N_VIEWS` value requires a separate trained model. Checkpoints ar
 Open `test_inference_metric.ipynb` and configure:
 
 ```python
-CHECKPOINT_PATH = "./outputs/20260113_0044_v3_r192_E0.06/best.pt"  # Your trained model
+CHECKPOINT_PATH = "./outputs/.../best.pt"  # Your trained model
 TEST_MODE = 3            # 1=individual, 2=multiple samples, 3=random angle combos
 TEST_OBJ_DIR = "./New_Result/TripoSR_figure_0.06_.../000001_gvxr_processed"
 GROUND_TRUTH_PATH = "./Bone_V5.stl"
@@ -239,4 +252,15 @@ To use different bone/anatomy models:
   journal={arXiv preprint arXiv:2304.02643},
   year={2023}
 }
+
+@article{vidal2021gvirtualxray,
+  title={gVirtualXRay: Virtual X-Ray Imaging Library on GPU},
+  author={Vidal, Franck P. and Villard, Pierre-Fr{\'e}d{\'e}ric},
+  journal={SoftwareX},
+  volume={16},
+  pages={100834},
+  year={2021},
+  publisher={Elsevier}
+}
+
 ```
