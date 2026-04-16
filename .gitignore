@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Large files - datasets, weights, caches
+*.pt
+*.pth
+*.ckpt
+*.npy
+*.npz
+*.pickle
+*.pkl
+*.stl
+*.obj
+.cache/
+outputs/
+
+# Example images (download separately)
+examples/*.png
+examples/*.jpg
+examples/*.jpeg
+
+# Temp / intermediate
+Temp/
+New_Result/
+test_results/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Uploads / user data
+mnt/
