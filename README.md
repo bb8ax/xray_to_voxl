@@ -228,6 +228,8 @@ To use different bone/anatomy models:
 3. If not using hand bones, you may need a different keypoint model and prompt strategy in place of MMPose + hand_prompts.
 4. In `data/dataset.py`, update `VALID_ANGLES` if your views use different angles.
 
+** Examples available in example folder.
+** Expected Runtime: 5 hour > for training, < 20 sec for inference
 
 ## Citation
 
