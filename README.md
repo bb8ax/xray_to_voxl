@@ -52,7 +52,7 @@ Look up the `Hand_Imaging_to_SAM_Dataset_generation.ipynb` for command lines.
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/xray_to_voxl.git
+   git clone https://github.com/bb8ax/xray_to_voxl.git
    cd xray_to_voxl
    ```
 
