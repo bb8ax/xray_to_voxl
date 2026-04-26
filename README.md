@@ -230,7 +230,7 @@ To use different bone/anatomy models:
 
 
 ## Examples
-1. Download the dataset from 10.5281/zenodo.19798835.
+1. Download the dataset from 10.5281/zenodo.19798835, and unzip it to source folder.
 2. Move the test_inference_metric_example.ipynb into source folder.
 3. Run and change the settings inside for different outputs.
 
