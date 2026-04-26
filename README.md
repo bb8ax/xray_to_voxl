@@ -228,8 +228,14 @@ To use different bone/anatomy models:
 3. If not using hand bones, you may need a different keypoint model and prompt strategy in place of MMPose + hand_prompts.
 4. In `data/dataset.py`, update `VALID_ANGLES` if your views use different angles.
 
-** Examples available in example folder.
-** Expected Runtime: 5 hour > for training, < 20 sec for inference
+
+## Examples
+1. Download the dataset from 10.5281/zenodo.19798835.
+2. Move the test_inference_metric_example.ipynb into source folder.
+3. Run and change the settings inside for different outputs.
+
+## Data availablilty
+The synthetic X-ray and TripoSR mesh dataset generated in this study has been deposited in the Zenodo repository under DOI 10.5281/zenodo.19798835. The dataset includes one hand bone 3D mesh model (Bone_V1, Flesh_V1) which is publicly available. The remaining four hand bone mesh models (Bone_V2, Flesh_V2 through V5) are not publicly available as they are derived from commercially available samples that require consent for distribution. Access to these additional meshes can be obtained by contacting the corresponding author; they will be distributed under restricted access after completion of a data use agreement stipulating that the data will not be redistributed and will be used solely for reproducing the results of this study.
 
 ## Citation
 
